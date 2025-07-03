@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIMA Student Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Login Page (shown by default) -->
+    <div id="login-page" class="page">
+        <div class="login-container">
+            <div class="portal-header">
+                <img src="https://www.unima.ac.mw/wp-content/uploads/2020/04/unima-logo.png" alt="UNIMA Logo" class="logo">
+                <h1>University of Malawi</h1>
+                <h5>Department of Physics ABMA Education</h5>
+                <h2>Student Portal</h2>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Registration Number</label>
+                    <input type="text" id="username" placeholder="e.g. DIP/2020/123" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+                <div class="login-footer">
+                    <a href="#" id="forgot-password">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard Page (hidden by default) -->
+    <div id="dashboard-page" class="page hidden">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <img src="https://www.unima.ac.mw/wp-content/uploads/2020/04/unima-logo.png" alt="UNIMA Logo" class="logo-small">
+                <h1>Student Portal</h1>
+            </div>
+            <div class="header-right">
+                <span id="student-name">John Banda</span>
+                <button id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </header>
+
+        <div class="dashboard-container">
+            <aside class="sidebar">
+                <div class="student-info">
+                    <div class="profile-pic">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3 id="sidebar-student-name">Kali Csya</h3>
+                    <p id="sidebar-program">Dipl Computer Science</p>
+                    <p id="sidebar-semester">Year 3, Semester 2</p>
+                </div>
+
+                <nav class="main-menu">
+                    <ul>
+                        <li class="active" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</li>
+                        <li data-section="academic-records"><i class="fas fa-graduation-cap"></i> Academic Records</li>
+                        <li data-section="fee-payment"><i class="fas fa-money-bill-wave"></i> Fee Payment</li>
+                        <li data-section="course-registration"><i class="fas fa-clipboard-list"></i> Course Registration</li>
+                        <li data-section="exam-results"><i class="fas fa-poll"></i> Exam Results</li>
+                        <li data-section="timetable"><i class="fas fa-calendar-alt"></i> Timetable</li>
+                        <li data-section="student-profile"><i class="fas fa-user-edit"></i> Student Profile</li>
+                        <li data-section="library-services"><i class="fas fa-book"></i> Library Services</li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="main-content">
+                <!-- Dashboard Section -->
+                <section id="dashboard-section" class="content-section">
+                    <h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+                    <div class="dashboard-cards">
+                        <div class="card">
+                            <h3>Current Semester</h3>
+                            <p>Year 3, Semester 2</p>
+                            <p>2024/2025 Academic Year</p>
+                        </div>
+                        <div class="card">
+                            <h3>Fee Status</h3>
+                            <p class="status-paid">Fully Paid</p>
+                            <p>Next Payment Due: None</p>
+                        </div>
+                        <div class="card">
+                            <h3>Registration Status</h3>
+                            <p class="status-complete">Complete</p>
+                            <p>All courses registered</p>
+                        </div>
+                    </div>
+
+                    <div class="notifications">
+                        <h3><i class="fas fa-bell"></i> Notifications</h3>
+                        <ul class="notification-list">
+                            <li>
+                                <span class="notification-date">15 Oct 2024</span>
+                                <span class="notification-text">Semester examinations begin on November 20th</span>
+                            </li>
+                            <li>
+                                <span class="notification-date">10 Oct 2024</span>
+                                <span class="notification-text">Last day for course registration is October 15th</span>
+                            </li>
+                            <li>
+                                <span class="notification-date">05 Oct 2024</span>
+                                <span class="notification-text">Library will be closed on October 12th for maintenance</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Academic Records Section -->
+                <section id="academic-records-section" class="content-section hidden">
+                    <h2><i class="fas fa-graduation-cap"></i> Academic Records</h2>
+                    <div class="section-content">
+                        <div class="tabs">
+                            <button class="tab-btn active" data-tab="transcript">Transcript</button>
+                            <button class="tab-btn" data-tab="grades">Current Grades</button>
+                            <button class="tab-btn" data-tab="courses">Registered Courses</button>
+                        </div>
+                        
+                        <div id="transcript-tab" class="tab-content">
+                            <h3>Academic Transcript</h3>
+                            <table class="records-table">
+                                <thead>
+                                    <tr>
+                                        <th>Course Code</th>
+                                        <th>Course Title</th>
+                                        <th>Credit Hours</th>
+                                        <th>Grade</th>
+                                        <th>Semester</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Transcript data would be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div id="grades-tab" class="tab-content hidden">
+                            <h3>Current Semester Grades</h3>
+                            <table class="records-table">
+                                <thead>
+                                    <tr>
+                                        <th>Course Code</th>
+                                        <th>Course Title</th>
+                                        <th>Credit Hours</th>
+                                        <th>Mid-Term</th>
+                                        <th>Final Exam</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Grades data would be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div id="courses-tab" class="tab-content hidden">
+                            <h3>Registered Courses</h3>
+                            <table class="records-table">
+                                <thead>
+                                    <tr>
+                                        <th>Course Code</th>
+                                        <th>Course Title</th>
+                                        <th>Credit Hours</th>
+                                        <th>Lecturer</th>
+                                        <th>Schedule</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Courses data would be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Fee Payment Section -->
+                <section id="fee-payment-section" class="content-section hidden">
+                    <h2><i class="fas fa-money-bill-wave"></i> Fee Payment</h2>
+                    <div class="section-content">
+                        <div class="fee-summary">
+                            <div class="fee-card">
+                                <h3>Current Balance</h3>
+                                <p class="fee-amount">MWK 0.00</p>
+                                <p class="fee-status">No outstanding fees</p>
+                            </div>
+                            <div class="fee-card">
+                                <h3>Last Payment</h3>
+                                <p class="fee-amount">MWK 250,000.00</p>
+                                <p class="fee-date">15 September 2024</p>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-history">
+                            <h3>Payment History</h3>
+                            <table class="records-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Reference</th>
+                                        <th>Amount</th>
+                                        <th>Method</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Payment history would be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="make-payment">
+                            <h3>Make Payment</h3>
+                            <form id="payment-form">
+                                <div class="form-group">
+                                    <label for="payment-amount">Amount (MWK)</label>
+                                    <input type="number" id="payment-amount" min="1000" step="1000" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="payment-method">Payment Method</label>
+                                    <select id="payment-method" required>
+                                        <option value="">Select method</option>
+                                        <option value="mpamba">MPamba</option>
+                                        <option value="airtel-money">Airtel Money</option>
+                                        <option value="bank-transfer">Bank Transfer</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn-primary">Proceed to Payment</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Other sections would follow the same pattern -->
+                <!-- For brevity, I've included the structure for the main sections -->
+                
+                <!-- Announcements Section (visible on all pages) -->
+                <aside class="announcements">
+                    <h3><i class="fas fa-bullhorn"></i> Announcements</h3>
+                    <div class="announcement-list">
+                        <div class="announcement">
+                            <h4>Semester Examination Timetable</h4>
+                            <p class="announcement-date">Posted: 10 October 2023</p>
+                            <p>The examination timetable for Semester 2 is now available. Please check your schedule.</p>
+                        </div>
+                        <div class="announcement">
+                            <h4>Course Registration Deadline</h4>
+                            <p class="announcement-date">Posted: 5 October 2023</p>
+                            <p>The deadline for course registration is 15th October 2023. Late registration will attract a penalty.</p>
+                        </div>
+                        <div class="announcement">
+                            <h4>University Holiday</h4>
+                            <p class="announcement-date">Posted: 1 October 2023</p>
+                            <p>The university will be closed on 14th October 2023 for Independence Day celebrations.</p>
+                        </div>
+                    </div>
+                </aside>
+            </main>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgot-password-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Reset Password</h2>
+            <form id="reset-password-form">
+                <div class="form-group">
+                    <label for="reset-username">Registration Number</label>
+                    <input type="text" id="reset-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="reset-email">Registered Email</label>
+                    <input type="email" id="reset-email" required>
+                </div>
+                <button type="submit" class="btn-primary">Reset Password</button>
+            </form>
+            <p class="modal-footer">You will receive a password reset link on your registered email.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
